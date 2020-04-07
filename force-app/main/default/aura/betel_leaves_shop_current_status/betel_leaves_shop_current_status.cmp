@@ -1,0 +1,45 @@
+<aura:component
+  implements="flexipage:availableForAllPageTypes"
+  controller="BetelLeavesController"
+>
+  <!--Attributes and handlers-->
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <aura:attribute name="records" type="paan__c" />
+  <ltng:require scripts="{!$Resource.jQuery}" />
+  <!--UI markups-->
+  <div class="container">
+    <h1>Current Status</h1>
+    <div class="slds-p-around_x-small">
+      <table class="table" id="dataTable">
+        <tr class="tr">
+          <th class="th">Name</th>
+          <th class="th">Origin</th>
+          <th class="th">Quality</th>
+          <th class="th">Price Per Leaf</th>
+          <th class="th">Stock Quantity</th>
+        </tr>
+        <aura:iteration items="{!v.records}" var="betelLeafType">
+          <tr class="tr">
+            <td class="td">{!betelLeafType.Name}</td>
+            <td class="td">{!betelLeafType.origin__c}</td>
+            <td class="td">{!betelLeafType.quality__c}</td>
+            <td class="td">{!betelLeafType.price_per_leaf__c}</td>
+            <td class="td">{!betelLeafType.stock_quantity__c}</td>
+          </tr>
+        </aura:iteration>
+      </table>
+      <lightning:layout horizontalAlign="center">
+        <lightning:layoutItem>
+          <div class="slds-p-top_large">
+            <lightning:button
+              aura:id="Print"
+              label="Print Current Status"
+              variant="brand"
+              onclick="{!c.printTable}"
+            />
+          </div>
+        </lightning:layoutItem>
+      </lightning:layout>
+    </div>
+  </div>
+</aura:component>

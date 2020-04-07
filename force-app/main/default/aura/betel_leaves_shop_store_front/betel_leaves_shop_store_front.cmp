@@ -1,0 +1,52 @@
+<aura:component
+  implements="flexipage:availableForAllPageTypes"
+  controller="BetelLeavesController"
+>
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <aura:attribute name="records" type="paan__c[]" />
+  <aura:attribute name="checkoutIds" type="String[]" />
+  <aura:attribute name="checkoutItems" type="paan__c[]" />
+  <aura:attribute name="showCart" type="boolean" default="false" />
+  <aura:attribute name="cartObjectList" type="List" />
+  <aura:attribute name="totalPrice" type="Integer" />
+
+  <div class="container">
+    <aura:if isTrue="{!v.showCart}">
+      <div class="slds-m-around_xx-large">
+        <c:betel_leaves_shop_cart_data_list
+          checkoutItems="{!v.checkoutItems}"
+          showCart="{!v.showCart}"
+          cartObjectList="{!v.cartObjectList}"
+          totalPrice="{!v.totalPrice}"
+        />
+      </div>
+    </aura:if>
+    <h1>Store</h1>
+    <aura:iteration items="{!v.records}" var="betelLeafType">
+      <div class="slds-p-around_x-small">
+        <lightning:card footer="" title="{!betelLeafType.Name}">
+          <aura:set attribute="actions">
+            <lightning:button
+              label="Add To Cart"
+              variant="brand"
+              name="{!betelLeafType.Id}"
+              onclick="{!c.addToCart}"
+            />
+          </aura:set>
+        </lightning:card>
+      </div>
+    </aura:iteration>
+    <lightning:layout horizontalAlign="center">
+      <lightning:layoutItem>
+        <div class="slds-p-around_small">
+          <lightning:button
+            aura:id="checkout"
+            label="Check Out"
+            variant="brand"
+            onclick="{!c.checkOut}"
+          />
+        </div>
+      </lightning:layoutItem>
+    </lightning:layout>
+  </div>
+</aura:component>

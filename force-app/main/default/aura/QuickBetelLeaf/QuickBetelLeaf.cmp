@@ -1,0 +1,113 @@
+<aura:component
+  implements="flexipage:availableForAllPageTypes"
+  controller="BetelLeavesController"
+>
+  <aura:attribute
+    name="betelLeafType"
+    type="paan__c"
+    default="{
+    sobject : 'paan__c',
+    Name : '',
+    origin__c : '',
+    price_per_leaf__c : '' ,
+    quality__c : '', 
+    sold_quantity__c : '',
+    stock_quantity__c : 0,
+    cumilitive_quantity__c : 0,
+    Description__c:''
+  }"
+  />
+  <aura:attribute name="showInputFields" type="boolean" default="false" />
+  <div class="slds-m-around_xx-large">
+    <section
+      role="dialog"
+      tabindex="-1"
+      aria-labelledby="modal-heading-01"
+      aria-modal="true"
+      aria-describedby="modal-content-id-1"
+      class="slds-modal slds-fade-in-open"
+    >
+      <div class="slds-modal__container">
+        <header class="slds-modal__header">
+          <lightning:buttonIcon
+            iconName="utility:close"
+            onclick="{! c.closeModel }"
+            alternativeText="close"
+            variant="bare-inverse"
+            class="slds-modal__close"
+          />
+          <h2
+            id="modal-heading-01"
+            class="slds-text-heading_medium slds-hyphenate"
+            >Betel Leaf Type Information</h2
+          >
+        </header>
+
+        <div
+          class="slds-modal__content slds-p-around_medium"
+          id="modal-content-id-1"
+        >
+          <lightning:input
+            type="String"
+            name="name"
+            label="Name"
+            value="{!v.betelLeafType.Name}"
+            required="true"
+          />
+
+          <lightning:input
+            type="String"
+            name="origin"
+            label="Origin"
+            value="{!v.betelLeafType.origin__c}"
+          />
+
+          <lightning:input
+            type="String"
+            name="description"
+            label="Description"
+            value="{!v.betelLeafType.Description__c}"
+          />
+
+          <lightning:input
+            type="number"
+            label="Price Per Leaf"
+            step="0.01"
+            value="{!v.betelLeafType.price_per_leaf__c}"
+            formatter="currency"
+          />
+
+          <lightning:input
+            type="String"
+            name="quality"
+            label="Quality"
+            value="{!v.betelLeafType.quality__c}"
+          />
+
+          <lightning:input
+            type="number"
+            name="stockQuantity"
+            label="Stock Quantity"
+            value="{!v.betelLeafType.stock_quantity__c}"
+          />
+        </div>
+        <footer class="slds-modal__footer">
+          <lightning:button
+            variant="neutral"
+            label="Cancel"
+            title="Cancel"
+            onclick="{!c.closeModel }"
+          />
+          <lightning:button
+            variant="Brand"
+            label="Save"
+            title="Save"
+            onclick="{!c.doSave}"
+          />
+        </footer>
+      </div>
+    </section>
+
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </div>
+</aura:component>

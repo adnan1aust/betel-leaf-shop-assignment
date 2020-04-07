@@ -1,0 +1,41 @@
+.THIS.container {
+  color: #2b2b2b;
+  width: 100%;
+  min-height: 650px;
+  background-color: white;
+  box-shadow: 1px 1px 5px grey;
+}
+
+.THIS.container h1 {
+  text-align: center;
+  padding: 0.5em;
+  font-size: 1.5rem;
+  color: #0a5d00;
+  font-weight: bold;
+}
+
+.THIS.table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+.THIS .td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+.THIS .th {
+  border: 1px solid #0a5d00;
+  background-color: #0a5d00;
+  color: white;
+  text-align: left;
+  padding: 8px;
+}
+.THIS .tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.THIS .slds-button_brand {
+  background-color: #0a5d00;
+  border: 1px solid #0a5d00;
+}

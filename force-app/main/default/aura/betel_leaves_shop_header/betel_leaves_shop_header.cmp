@@ -1,0 +1,5 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+  <h1 class="page-header"
+    ><img src="{!$Resource.betelLeafLogo}" />House Of The Green Gold</h1
+  >
+</aura:component>

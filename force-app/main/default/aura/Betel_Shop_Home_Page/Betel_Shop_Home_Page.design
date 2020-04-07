@@ -1,0 +1,9 @@
+<design:component label="Betel Shop Home Page">
+  <flexipage:template>
+    <flexipage:region name="header" defaultWidth="Large" />
+    <flexipage:region name="left_sidebar" defaultWidth="Large" />
+    <flexipage:region name="main" defaultWidth="Large" />
+    <flexipage:region name="right_sidebar" defaultWidth="Large" />
+    <flexipage:region name="footer" defaultWidth="Large" />
+  </flexipage:template>
+</design:component>

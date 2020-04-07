@@ -1,0 +1,25 @@
+.THIS.container {
+  color: #2b2b2b;
+  width: 100%;
+  background-color: white;
+  box-shadow: 1px 1px 5px grey;
+  max-height: 650px;
+  overflow: scroll;
+}
+
+.THIS.container h1 {
+  text-align: center;
+  padding: 0.5em;
+  font-size: 1.5rem;
+  color: #0a5d00;
+  font-weight: bold;
+}
+
+.THIS .slds-button_brand {
+  background-color: #0a5d00;
+  border: 1px solid #0a5d00;
+}
+
+.THIS .slds-text-heading_small {
+  color: #0a5d00;
+}

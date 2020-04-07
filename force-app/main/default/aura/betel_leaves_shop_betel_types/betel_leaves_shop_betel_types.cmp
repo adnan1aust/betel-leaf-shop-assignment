@@ -1,0 +1,56 @@
+<aura:component
+  implements="flexipage:availableForAllPageTypes"
+  controller="BetelLeavesController"
+>
+  <!--Attributes and handlers-->
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <aura:attribute name="records" type="paan__c[]" />
+  <aura:attribute name="showInputFields" type="boolean" default="false" />
+  <aura:handler
+    name="betelSearchEvent"
+    event="c:SearchEvent"
+    action="{!c.doSearch}"
+  />
+  <!--UI markups-->
+  <div class="container">
+    <aura:if isTrue="{!v.showInputFields}">
+      <div class="slds-m-around_xx-large">
+        <c:QuickBetelLeaf showInputFields="{!v.showInputFields}" />
+      </div>
+    </aura:if>
+    <h1>Available Types</h1>
+    <c:BetelLeafSearch />
+    <aura:iteration items="{!v.records}" var="betelLeafType">
+      <div class="slds-p-around_x-small">
+        <lightning:card
+          footer="{!betelLeafType.quality__c}"
+          title="{!betelLeafType.Name}"
+        >
+          <aura:set attribute="actions">
+            <lightning:button
+              label="View Details"
+              variant="brand"
+              name="{!betelLeafType.Id}"
+              onclick="{!c.doRedirect}"
+            />
+          </aura:set>
+          <p class="slds-p-horizontal_small">
+            {!betelLeafType.Description__c}
+          </p>
+        </lightning:card>
+      </div>
+    </aura:iteration>
+    <lightning:layout horizontalAlign="center">
+      <lightning:layoutItem>
+        <div class="slds-p-around_small">
+          <lightning:button
+            aura:id="Add"
+            label="Add Type"
+            variant="brand"
+            onclick="{!c.addType}"
+          />
+        </div>
+      </lightning:layoutItem>
+    </lightning:layout>
+  </div>
+</aura:component>

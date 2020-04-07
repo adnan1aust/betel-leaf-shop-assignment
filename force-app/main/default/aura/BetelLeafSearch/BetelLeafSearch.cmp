@@ -1,0 +1,13 @@
+<aura:component>
+  <aura:registerEvent name="betelSearchEvent" type="c:SearchEvent" />
+  <div class="slds-p-around_x-small">
+    <lightning:input
+      name="inline-search-input"
+      label="Betel Type Search"
+      type="Search"
+      variant="label-hidden"
+      aura:id="searchInput"
+      onchange="{!c.doSearch}"
+    />
+  </div>
+</aura:component>

@@ -1,0 +1,19 @@
+.THIS {
+  font-size: 1.5rem;
+  color: #0a5d00;
+}
+
+/*
+@font-face {
+  font-family: "Merriweather";
+  src: url(/resource/Merriweather);
+}*/
+
+.THIS.page-header {
+  font-weight: 900;
+  text-align: center;
+}
+
+.THIS.page-header img {
+  width: 50px;
+}
